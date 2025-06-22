@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router';
+import { AuthContext } from '../context/AuthContext';
 
 const Navbar = () => {
+    const {user,singOut}=useContext(AuthContext)
      const Links=<>
          <li><NavLink to={"/"}>Home</NavLink></li>
        
-         <li><NavLink to={"home2"}>Home</NavLink></li>
-       
-        
+         <li><NavLink to={"home2"}>Home</NavLink></li>    
     </>
+      const [dropdownOpen, setDropdownOpen] = useState(false);
+       const handleSingOut =()=>{
+        singOut()
+        .then(() => {
+   console.log('Sign-out successful.')
+}).catch((error) => {
+  // An error happened.
+  console.log(error)
+});
+
+}
     
     return (
            <div className="navbar bg-base-100 shadow-sm">
@@ -33,12 +44,39 @@ const Navbar = () => {
   </div>
   <div className="navbar-end space-x-3">
     
+       {!user && (
+          <>
+            <NavLink to='/login' className="btn btn-success">Login</NavLink>
+            <NavLink to='/register' className="btn btn-success">Register</NavLink>
+          </>
+        )} 
+
+         {user && (
+          <div className="relative">
+
+
+            <img
+              src={user.photoURL || ""}
+              alt="Profile"
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className="w-10 h-10 rounded-full cursor-pointer border-2 border-white"
+            />
+
+            {dropdownOpen && (
+              <div className="absolute right-0 mt-2 w-72 bg-white text-black rounded shadow-md z-10">
+                <div className="p-2 border-b">
+                 <p className='tooltip tooltip-bottom'>Name: {user.displayName || "user"}</p>
+                  <p className="font-semibold">Email</p>
+                  <p className='text-xl'>{user.email}</p>
+
+                </div>
+                <button onClick={handleSingOut}  className="w-full text-left px-4 py-2 btn">Log Out</button>
+              </div>
+            )}
+          </div>
+        )}
         
-        
-        <>
-        <NavLink className='btn' to={'/register'}>Register</NavLink>
-    <NavLink className='btn' to={'/login'}>Login</NavLink>
-        </>
+       
     
   </div>
 </div>

@@ -8,6 +8,7 @@ import Home from '../Home/Home';
 import Register from '../pages/Register';
 import Login from '../pages/Login';
 import Rooms from '../pages/Rooms';
+import RoomDetails from '../pages/RoomDetails';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
         {
           path:'/rooms',
           element:<Rooms></Rooms>
+        },
+        {
+          path:'/rooms/:id',
+          loader:({params})=>fetch(`http://localhost:3000/rooms/${params.id}`),
+          element:<RoomDetails></RoomDetails>
         }
     ]
   },

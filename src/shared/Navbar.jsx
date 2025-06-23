@@ -7,7 +7,7 @@ const Navbar = () => {
      const Links=<>
          <li><NavLink to={"/"}>Home</NavLink></li>
        
-         <li><NavLink to={"home2"}>Home</NavLink></li>    
+         <li><NavLink to={"/rooms"}>Rooms</NavLink></li>    
     </>
       const [dropdownOpen, setDropdownOpen] = useState(false);
        const handleSingOut =()=>{

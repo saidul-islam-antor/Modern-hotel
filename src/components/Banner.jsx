@@ -10,7 +10,7 @@ const Banner = () => {
     const slides = [
         {
             id: 1,
-            image: "https://i.ibb.co/xtLXdQ75/full-shot-man-carrying-baggage.jpg",
+            image: "https://i.ibb.co/Hf9Qh9N3/full-shot-man-carrying-baggage-23-2149963942.jpg",
             title: "Welcome to Luxury",
             desc: "Book premium rooms in seconds",
         },

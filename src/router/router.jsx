@@ -9,6 +9,11 @@ import Register from '../pages/Register';
 import Login from '../pages/Login';
 import Rooms from '../pages/Rooms';
 import RoomDetails from '../pages/RoomDetails';
+import PrivetRoutes from '../routes/PrivetRoutes';
+
+import BookingModalRoute from '../pages/BookingModalRoute';
+import MyBookings from '../mybookings/MyBookings';
+
 
 const router = createBrowserRouter([
   {
@@ -36,8 +41,24 @@ const router = createBrowserRouter([
         {
           path:'/rooms/:id',
           loader:({params})=>fetch(`http://localhost:3000/rooms/${params.id}`),
-          element:<RoomDetails></RoomDetails>
+          element:
+            <RoomDetails></RoomDetails>
+          
+        },
+        {
+          path:'/booking/:id',
+          loader:({params})=>fetch(`http://localhost:3000/rooms/${params.id}`),
+          element:<PrivetRoutes>
+            <BookingModalRoute></BookingModalRoute>
+          </PrivetRoutes>
+        },
+        {
+          path:'/myBookings',
+          element:<PrivetRoutes>
+            <MyBookings></MyBookings>
+          </PrivetRoutes>
         }
+
     ]
   },
 ]);

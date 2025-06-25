@@ -10,13 +10,13 @@ const Banner = () => {
     const slides = [
         {
             id: 1,
-            image: "https://i.ibb.co/Hf9Qh9N3/full-shot-man-carrying-baggage-23-2149963942.jpg",
+            image: "https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=pexels-pixabay-531880.jpg&fm=jpg",
             title: "Welcome to Luxury",
             desc: "Book premium rooms in seconds",
         },
         {
             id: 2,
-            image: "https://i.ibb.co/6JRzQWR2/modern-villa-with-multiple-lights-sun-loungers-asprovalta-greece.jpg",
+            image: "https://i.ibb.co/W7LBDPc/modern-villa-with-multiple-lights-sun-loungers-asprovalta-greece.jpg",
             title: "Comfort and Elegance",
             desc: "Relax and recharge in beautiful spaces",
         },

@@ -7,11 +7,18 @@ import { AuthContext } from "../context/AuthContext"; // 🧠 Your Auth Context
 import axios from "axios";
 
 
+
+
+
 const BookingModal = ({ room, closeModal, refetchRooms }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const { user } = useContext(AuthContext);
+  
+
 
   const handleBooking = async () => {
+    
+
     if (!selectedDate) {
       toast.error("Please select a booking date");
       return;
@@ -25,25 +32,10 @@ const BookingModal = ({ room, closeModal, refetchRooms }) => {
       price: room.price,
       image: room.image,
       roomTitle: room.title,
-      description:room.description
+      description:room.description,
+      
     };
 
-// axios.post('http://localhost:3000/booking',bookingData)
-// .then(res=>{
-//     console.log(res.data)
-//     if(res.data.insertedId){
-//         Swal.fire({
-//   title: "Good job!",
-//   text: "Your Room Booking Conform!",
-//   icon: "success"
-  
-// })
-//  closeModal();
-//     }
-// })
-// .catch(error=>{
-//     console.log(error)
-// })
 
     try {
       const res = await axios.post('http://localhost:3000/booking',bookingData)
@@ -57,7 +49,7 @@ const BookingModal = ({ room, closeModal, refetchRooms }) => {
         toast.error(res.data.message || "Booking Failed");
       }
     } catch (error) {
-      toast.error("Booking failed. Try again.",);
+      toast.error("Booking failed. Try again.",error);
     }
    };
 
@@ -85,12 +77,16 @@ const BookingModal = ({ room, closeModal, refetchRooms }) => {
           >
             Cancel
           </button>
-          <button
+
+          
+            <button
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
             onClick={handleBooking}
           >
             Confirm Booking
           </button>
+        
+          
         
         </div>
     

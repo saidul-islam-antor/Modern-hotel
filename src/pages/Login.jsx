@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 import SocailLogin from '../shared/SocailLogin';
 import Swal from 'sweetalert2';
 
 const Login = () => {
     const { singIN } = useContext(AuthContext)
+    const location =useLocation()
+    const navigate =useNavigate()
+    const from = location.state || '/'
     const handleLogin = e => {
 
         e.preventDefault()
@@ -17,6 +20,7 @@ const Login = () => {
         singIN(email, password)
             .then(result => {
                 console.log(result.user)
+                navigate(from)
                 Swal.fire({
                     title: "Login successfully",
                     icon: "success",
@@ -61,7 +65,7 @@ const Login = () => {
 
 
 
-                            <SocailLogin></SocailLogin>
+                            <SocailLogin from={from}></SocailLogin>
                         </fieldset>
                     </form>
                 </div>

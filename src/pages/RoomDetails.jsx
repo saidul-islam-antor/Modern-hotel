@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router';
+import {  useLoaderData, useNavigate } from 'react-router';
 import BookingModal from '../components/BookingModal';
 
 const RoomDetails = () => {
     const room =useLoaderData()
+    const navigate =useNavigate()
     console.log(room)
     const [showModal, setShowModal] = useState(false);
     return (
@@ -14,7 +15,7 @@ const RoomDetails = () => {
       <p className="text-lg font-semibold">Price: ${room.price}</p>
       <button
         className="mt-4 px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-        onClick={() => setShowModal(true)}
+        onClick={() =>navigate (`/booking/${room._id}`)}
       >
         Book Now
       </button>

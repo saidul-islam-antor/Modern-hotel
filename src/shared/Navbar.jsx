@@ -8,6 +8,11 @@ const Navbar = () => {
          <li><NavLink to={"/"}>Home</NavLink></li>
        
          <li><NavLink to={"/rooms"}>Rooms</NavLink></li>    
+        {
+          user && <>
+           <li><NavLink to={"/myBookings"}>MyBookings</NavLink></li> 
+           </>
+        }   
     </>
       const [dropdownOpen, setDropdownOpen] = useState(false);
        const handleSingOut =()=>{

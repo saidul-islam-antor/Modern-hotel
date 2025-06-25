@@ -1,13 +1,17 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router';
 
-const SocailLogin = () => {
+const SocailLogin = ({from}) => {
  const {singINwithGoogle}=useContext(AuthContext)
+ const navigate=useNavigate()
      const handleGoogle=()=>{
         singINwithGoogle()
         .then(result=>{
             console.log(result.user)
+            navigate(from || '/')
+
             Swal.fire({
               title: "Account Created!",
               icon: "success",

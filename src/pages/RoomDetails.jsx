@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {  useLoaderData, useNavigate } from 'react-router';
 import BookingModal from '../components/BookingModal';
+import axios from 'axios';
 
 const RoomDetails = () => {
     const room =useLoaderData()
     const navigate =useNavigate()
-    console.log(room)
+    const [reviews, setReviews] = useState([]);
+
+useEffect(() => {
+  axios.get(`http://localhost:3000/reviews/${room._id}`)
+    .then(res => setReviews(res.data))
+    .catch(err => console.log("Review fetch error", err));
+}, [room._id]);
+
+
+
     const [showModal, setShowModal] = useState(false);
     return (
        <div className="p-6 max-w-3xl mx-auto">
@@ -13,6 +23,24 @@ const RoomDetails = () => {
       <h2 className="text-3xl font-bold mb-2">{room.title}</h2>
       <p className="text-gray-600 mb-2">{room.description}</p>
       <p className="text-lg font-semibold">Price: ${room.price}</p>
+
+      <h3 className="text-xl font-bold mt-6">Reviews:</h3>
+{reviews.length === 0 ? (
+  <p className="text-gray-500 italic">No reviews yet for this room.</p>
+) : (
+  <ul className="space-y-4">
+    {reviews.map((r, idx) => (
+      <li key={idx} className="border p-4 rounded">
+        <div className="flex justify-between">
+          <p className="font-semibold">{r.username}</p>
+          <p className="text-yellow-500">⭐ {r.rating}/5</p>
+        </div>
+        <p className="text-gray-700">{r.comment}</p>
+        <p className="text-sm text-gray-400">{new Date(r.createdAt).toLocaleString()}</p>
+      </li>
+    ))}
+  </ul>
+)}
       
       {
         room.status!=="unavailable"?(

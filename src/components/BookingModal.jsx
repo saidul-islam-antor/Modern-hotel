@@ -35,7 +35,7 @@ const BookingModal = ({ room, closeModal, refetchRooms }) => {
       image: room.image,
       roomTitle: room.title,
       description:room.description,
-      status:room.unavailable,
+     
       
     };
 

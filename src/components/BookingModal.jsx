@@ -5,7 +5,7 @@ import { toast, } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../context/AuthContext"; 
 import axios from "axios";
-import { useNavigate } from "react-router";
+
 
 
 
@@ -14,7 +14,7 @@ import { useNavigate } from "react-router";
 const BookingModal = ({ room, closeModal, refetchRooms }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const { user } = useContext(AuthContext);
-  const navigate=useNavigate()
+ 
   
 
 
@@ -35,6 +35,7 @@ const BookingModal = ({ room, closeModal, refetchRooms }) => {
       image: room.image,
       roomTitle: room.title,
       description:room.description,
+      status:room.unavailable,
       
     };
 
@@ -45,7 +46,7 @@ const BookingModal = ({ room, closeModal, refetchRooms }) => {
 
       if (res.data.bookingId) {
         toast.success("Booking Confirmed!");
-        navigate('/myBookings')
+        
         closeModal();
         refetchRooms(); // Refresh room availability
       } else {

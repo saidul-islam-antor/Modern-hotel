@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { useLoaderData, useNavigate } from 'react-router';
 import 'react-datepicker/dist/react-datepicker.css';
+import Swal from 'sweetalert2';
 
 const UpdateBookingModal = () => {
   const booking = useLoaderData();
@@ -25,7 +26,13 @@ const UpdateBookingModal = () => {
       .then(data => {
         console.log(data);
         if (data?.message) {
-          alert('Booking date updated successfully!');
+         
+
+Swal.fire({
+  title: "update successfully!",
+  text: "You clicked the button!",
+  icon: "success"
+});
           navigate(-1); // modal close kore back page e jai
         } else {
           alert('Update failed.');

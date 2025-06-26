@@ -1,14 +1,14 @@
 import React from 'react';
-import { useLoaderData,  } from 'react-router';
+import { useLoaderData, useNavigate,  } from 'react-router';
 import BookingModal from '../components/BookingModal';
 
 const BookingModalRoute = () => {
     const room=useLoaderData()
-    // const navigate =useNavigate()
+    const navigate =useNavigate()
       return (
     <BookingModal
       room={room}
-      // closeModal={() => navigate("/myBookings")}
+      closeModal={() => navigate(-1)}
       refetchRooms={() => {}}
     />
   );

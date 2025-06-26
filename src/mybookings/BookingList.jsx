@@ -1,9 +1,11 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import BookingRow from './BookingRow';
 
 
 const BookingList = ({myBookingsPromise}) => {
-    const bookings =use(myBookingsPromise)
+    const initailbookings =use(myBookingsPromise)
+    const [bookings,setBookings]=useState(initailbookings)
+    
     
       
     return (
@@ -22,7 +24,7 @@ const BookingList = ({myBookingsPromise}) => {
         <th>Image</th>
         <th>Name</th>
         <th>price</th>
-        <th> </th>
+        <th>date </th>
       </tr>
     </thead>
     <tbody>
@@ -34,7 +36,7 @@ const BookingList = ({myBookingsPromise}) => {
           booking={booking}
          
           bookings={bookings}
-        //   setBookings={setBookings}
+          setBookings={setBookings}
           index={index}
           ></BookingRow>
         )

@@ -3,8 +3,9 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { toast, } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { AuthContext } from "../context/AuthContext"; // 🧠 Your Auth Context
+import { AuthContext } from "../context/AuthContext"; 
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 
 
@@ -13,6 +14,7 @@ import axios from "axios";
 const BookingModal = ({ room, closeModal, refetchRooms }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const { user } = useContext(AuthContext);
+  const navigate=useNavigate()
   
 
 
@@ -43,6 +45,7 @@ const BookingModal = ({ room, closeModal, refetchRooms }) => {
 
       if (res.data.bookingId) {
         toast.success("Booking Confirmed!");
+        navigate('/myBookings')
         closeModal();
         refetchRooms(); // Refresh room availability
       } else {

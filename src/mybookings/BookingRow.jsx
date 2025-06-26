@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 
 
@@ -68,10 +69,11 @@ Swal.fire({
       {booking.userEmail}
         </td>
         <td>{booking.price}</td>
+        <td>{booking.date}</td>
     
          <td className="space-x-2  space-y-2">
                  <button onClick={() => handleCancel(booking._id)} className="bg-red-500 text-white px-2 py-1 rounded">Cancel</button>
-                  <button onClick={() => handleUpdateDate(booking)} className="bg-blue-500 text-white px-2 py-1 rounded">Update Date</button>
+                 <Link to={`/bookings/${booking._id}`}> <button  className="bg-blue-500 text-white px-2 py-1 rounded">Update Date</button></Link>
                 <button className="bg-green-500 text-white px-2 py-1 rounded">Review</button>
                 </td>
         

@@ -10,7 +10,7 @@ const Banner = () => {
     const slides = [
         {
             id: 1,
-            image: "https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=pexels-pixabay-531880.jpg&fm=jpg",
+            image: "https://i.ibb.co/zTnR46Mv/full-shot-man-carrying-baggage.jpg",
             title: "Welcome to Luxury",
             desc: "Book premium rooms in seconds",
         },
@@ -41,11 +41,15 @@ const Banner = () => {
                 {slides.map(slide => (
                     <div
                         key={slide.id}
-                        className={`bg-[url('${slide.image}')] bg-cover bg-center w-full h-[80vh] relative`}
+                        // className={`bg-[url('${slide.image}')] bg-cover bg-center w-full h-[80vh] relative`}
+                        
                     >
+                        <div>
+                            <img className='h-[80vh]' src={slide.image} alt="" />
+                        </div>
                         <div className="absolute inset-0   flex flex-col items-center justify-center  text-center px-4">
                             <motion.h1
-                                className="text-4xl  lg:text-5xl font-bold mb-4"
+                                className="text-4xl text-gray-200 lg:text-5xl font-bold mb-4"
                                 initial={{ opacity: 0, y: -30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6 }}
@@ -54,7 +58,7 @@ const Banner = () => {
                             </motion.h1>
 
                             <motion.p
-                                className="text-lg mb-6 "
+                                className="text-lg text-gray-200 mb-6 "
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2, duration: 0.6 }}

@@ -14,11 +14,15 @@ import PrivetRoutes from '../routes/PrivetRoutes';
 import BookingModalRoute from '../pages/BookingModalRoute';
 import MyBookings from '../mybookings/MyBookings';
 
+import UpdateBookingModal from '../pages/updateBookingModal';
+import Errorpage from '../pages/ErrorPage';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayouts></MainLayouts>,
+    errorElement:<Errorpage></Errorpage>,
     children:[
         {
             index:true,
@@ -57,6 +61,11 @@ const router = createBrowserRouter([
           element:<PrivetRoutes>
             <MyBookings></MyBookings>
           </PrivetRoutes>
+        },
+        {
+          path:'bookings/:id',
+          loader:({params})=> fetch(`http://localhost:3000/bookings/${params.id}`),
+          element:<UpdateBookingModal></UpdateBookingModal>
         }
 
     ]

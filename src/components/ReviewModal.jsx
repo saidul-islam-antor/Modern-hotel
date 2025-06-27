@@ -26,6 +26,8 @@ const ReviewModal = ({ roomId, closeModal }) => {
       if (res.data.reviewId) {
         toast.success("Review submitted!");
         closeModal();
+        setComment("")
+        setRating(5)
       }
     } catch (err) {
       toast.error("Failed to submit review.",err);

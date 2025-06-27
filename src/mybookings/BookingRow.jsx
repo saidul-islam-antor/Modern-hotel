@@ -1,8 +1,9 @@
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 import ReviewModal from '../components/ReviewModal';
+import { AuthContext } from '../context/AuthContext';
 
 
 
@@ -12,8 +13,11 @@ import ReviewModal from '../components/ReviewModal';
 const BookingRow = ({booking,bookings,setBookings,  index}) => {
   
  const [showReviewModal, setShowReviewModal] = useState(false);
+ const {user}=useContext(AuthContext)
    
     const handleCancel =(id)=>{
+
+
          console.log ( 'after delete',id)
 Swal.fire({
   title: "Are you sure?",
@@ -71,7 +75,7 @@ Swal.fire({
         </td>
         <td>
         
-      {booking.userEmail}
+      {user.displayName}
         </td>
         <td>{booking.price}</td>
         <td>{booking.date}</td>

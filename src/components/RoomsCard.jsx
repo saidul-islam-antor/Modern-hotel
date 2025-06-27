@@ -21,7 +21,7 @@ const RoomsCard = ({ room }) => {
         <div className="mt-3 flex justify-between items-center">
           <span className="text-lg font-bold text-green-600">${room.price}</span>
           <span className="text-sm text-gray-500">
-            {room.reviews?.length || "No reviews yet for this room"} Reviews
+            
           </span>
         </div>
       </div>

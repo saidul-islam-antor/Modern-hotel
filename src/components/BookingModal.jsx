@@ -41,7 +41,7 @@ const BookingModal = ({ room, closeModal, refetchRooms }) => {
 
 
     try {
-      const res = await axios.post('http://localhost:3000/booking',bookingData)
+      const res = await axios.post('https://ph-project-11-server.vercel.app/booking',bookingData)
       
 
       if (res.data.bookingId) {

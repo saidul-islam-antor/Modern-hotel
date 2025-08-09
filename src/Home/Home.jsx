@@ -7,7 +7,7 @@ import FeaturedRooms from '../pages/FeaturedRooms';
 
 
 const Home = () => (
-    <div>
+    <div className='pt-16'>
         <Banner></Banner>
         
         <FeaturedRooms></FeaturedRooms>

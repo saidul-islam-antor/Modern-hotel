@@ -1,3 +1,3 @@
  export const myBookingsPromise =email=>{
-    return fetch(`http://localhost:3000/bookings?email=${email}`).then(res=>res.json())
+    return fetch(`https://ph-project-11-server.vercel.app/bookings?email=${email}`).then(res=>res.json())
 }

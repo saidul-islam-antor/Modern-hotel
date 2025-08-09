@@ -15,7 +15,7 @@ const UpdateBookingModal = () => {
       date: date.toISOString().split('T')[0] // date string in yyyy-mm-dd format
     };
 
-    fetch(`http://localhost:3000/bookings/${booking._id}`, {
+    fetch(`https://ph-project-11-server.vercel.app/bookings/${booking._id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

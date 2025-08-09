@@ -15,7 +15,7 @@ const ReviewModal = ({ roomId, closeModal }) => {
     }
 
     try {
-      const res = await axios.post("http://localhost:3000/reviews", {
+      const res = await axios.post("https://ph-project-11-server.vercel.app/reviews", {
         roomId,
         userEmail: user?.email,
         username: user?.displayName || "Anonymous",

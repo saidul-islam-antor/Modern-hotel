@@ -10,7 +10,7 @@ const FeaturedRooms = () => {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/room/top-rated?limit=6");
+        const res = await axios.get("https://ph-project-11-server.vercel.app/room/top-rated?limit=6");
         setFeaturedRooms(res.data);
       } catch (error) {
         console.error("Error fetching featured rooms:", error);

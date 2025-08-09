@@ -44,14 +44,14 @@ const router = createBrowserRouter([
         },
         {
           path:'/rooms/:id',
-          loader:({params})=>fetch(`http://localhost:3000/rooms/${params.id}`),
+          loader:({params})=>fetch(`https://ph-project-11-server.vercel.app/rooms/${params.id}`),
           element:
             <RoomDetails></RoomDetails>
           
         },
         {
           path:'/booking/:id',
-          loader:({params})=>fetch(`http://localhost:3000/rooms/${params.id}`),
+          loader:({params})=>fetch(`https://ph-project-11-server.vercel.app/rooms/${params.id}`),
           element:<PrivetRoutes>
             <BookingModalRoute></BookingModalRoute>
           </PrivetRoutes>
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
         },
         {
           path:'bookings/:id',
-          loader:({params})=> fetch(`http://localhost:3000/bookings/${params.id}`),
+          loader:({params})=> fetch(`https://ph-project-11-server.vercel.app/bookings/${params.id}`),
           element:<UpdateBookingModal></UpdateBookingModal>
         }
 

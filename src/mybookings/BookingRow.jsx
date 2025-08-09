@@ -30,7 +30,7 @@ Swal.fire({
 }).then((result) => {
   if (result.isConfirmed) {
 
- fetch(`http://localhost:3000/bookings/${id}`,{
+ fetch(`https://ph-project-11-server.vercel.app/bookings/${id}`,{
     method:'DELETE'
  })
  .then(res=>res.json())

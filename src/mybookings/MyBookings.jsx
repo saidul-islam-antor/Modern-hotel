@@ -9,7 +9,7 @@ import { myBookingsPromise } from '../api/BookingAPI';
 const MyBookings = () => {
     const {user}=useContext(AuthContext)
     return (
-        <div className='p-4'>
+        <div className='p-4 pt-16'>
           <h2 className="text-2xl font-semibold mb-4">📋 My Bookings</h2>
             <Suspense fallback="loading your bookings">
                 <BookingList myBookingsPromise={myBookingsPromise(user.email)}></BookingList>

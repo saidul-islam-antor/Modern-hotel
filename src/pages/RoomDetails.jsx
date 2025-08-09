@@ -9,7 +9,7 @@ const RoomDetails = () => {
     const [reviews, setReviews] = useState([]);
 
 useEffect(() => {
-  axios.get(`http://localhost:3000/reviews/${room._id}`)
+  axios.get(`https://ph-project-11-server.vercel.app/reviews/${room._id}`)
     .then(res => setReviews(res.data))
     .catch(err => console.log("Review fetch error", err));
 }, [room._id]);

@@ -16,6 +16,8 @@ import MyBookings from '../mybookings/MyBookings';
 
 import UpdateBookingModal from '../pages/updateBookingModal';
 import Errorpage from '../pages/ErrorPage';
+import AboutUs from '../pages/AboutUs';
+import FAQSection from '../pages/Faq';
 
 
 const router = createBrowserRouter([
@@ -41,6 +43,16 @@ const router = createBrowserRouter([
         {
           path:'/rooms',
           element:<Rooms></Rooms>
+        },
+        {
+          path:'/about',
+          element:<AboutUs></AboutUs>
+        },
+        {
+          path:'/faq',
+          element:
+            <FAQSection></FAQSection>
+         
         },
         {
           path:'/rooms/:id',

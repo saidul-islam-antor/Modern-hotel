@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext,  useState } from "react";
 import { NavLink } from "react-router"; // নিশ্চিত react-router-dom
 import { AuthContext } from "../context/AuthContext";
 import { ThemeContext } from "./ThemProvider";
@@ -16,8 +16,8 @@ const Navbar = () => {
 
   const navLinkClass = ({ isActive }) =>
     isActive
-      ? "text-indigo-600 font-semibold border-b-2 border-indigo-600"
-      : "text-gray-800 hover:text-indigo-600";
+      ? "text-yellow-600 bg-neutral font-semibold border-b-2 border-indigo-600"
+      : "text-gray-800 hover:text-gray-600";
 
   const Links = (
     <>
@@ -54,6 +54,7 @@ const Navbar = () => {
   return (
     <nav className="w-full fixed top-0 left-0 z-50 bg-primary lg:px-20 shadow-sm px-4">
       <div className="flex justify-between items-center h-16">
+        
         {/* Left: Mobile toggle + Brand */}
         <div className="flex items-center space-x-4">
           {/* Mobile Dropdown Toggle */}
@@ -76,12 +77,14 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-accent rounded-box w-52"
             >
               {Links}
             </ul>
           </div>
-
+    <div>
+       <img className="w-12" src="https://i.ibb.co.com/wh3jyXD5/1600w-FVZg-GU4-JRc.jpg" alt="" />
+    </div>
           {/* Brand */}
           <NavLink
             to="/"

@@ -31,11 +31,14 @@ const FeaturedRooms = () => {
   }, []);
 
   return (
-    <section data-aos="fade-up" className="py-10 px-4 bg-gray-100">
+    <section  className="py-10 px-4 bg-gray-100">
       <h2 className="text-3xl text-primary font-bold text-center mb-8">Featured Rooms Top Ratings</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {featuredRooms.map((room) => (
-          <div key={room._id} className="bg-white rounded-xl shadow p-4">
+          <div key={room._id}
+          data-aos="fade-up"
+   
+           className="bg-white rounded-xl shadow p-4 cursor-pointer hover:shadow-lg hover:scale-105 transition-transform duration-300">   ">
             <img
               src={room.image}
               alt={room.title}

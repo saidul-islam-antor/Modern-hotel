@@ -22,12 +22,12 @@ const HowToBook = () => {
 
   return (
     <div className="bg-[#F9FAFB] py-12 px-6 md:px-20">
-      <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">How to Book Rooms 🛎️</h2>
+      <h2 className="text-3xl font-bold text-center mb-10 text-primary">How to Book Rooms 🛎️</h2>
       <div className="grid md:grid-cols-3 gap-8 text-center">
         {steps.map((step, index) => (
           <div key={index} className="bg-white rounded-xl shadow hover:shadow-md p-6 transition-all">
             <div className="flex justify-center">{step.icon}</div>
-            <h4 className="text-xl font-semibold mb-2 mt-2">{step.title}</h4>
+            <h4 className="text-xl text-neutral font-semibold mb-2 mt-2">{step.title}</h4>
             <p className="text-gray-600 text-sm">{step.description}</p>
           </div>
         ))}
